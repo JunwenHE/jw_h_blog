@@ -6,9 +6,18 @@ const connectDB = async () => {
         useCreateIndex: true,
         useUnifiedTopology: true,
         useFindAndModify: false
+    }, (err) => {
+
+        if (!err) {
+            console.log(`MongoDB Connected: ${process.env.MONGODB_URL}`)
+
+        }
+
+        else {
+            console.log('Error in MongoDB connection : ' + JSON.stringify(err))
+        }
     });
 
-    console.log(`MongoDB Connected: ${process.env.MONGODB_URL}`)
 }
 
 export default connectDB;
