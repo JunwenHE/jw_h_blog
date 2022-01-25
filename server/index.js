@@ -5,6 +5,7 @@ import dotenv from 'dotenv';
 import connectDB from './config/db.js'
 import articleRoutes from './routes/articles.js';
 import usersRoute from './routes/users.js'
+
 //Bakcend server settings
 dotenv.config({ path: './config/config.env' });
 connectDB();
