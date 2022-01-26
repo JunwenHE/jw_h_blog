@@ -3,10 +3,11 @@ import { TextField, Button, Typography, Paper } from '@material-ui/core';
 import { useDispatch, useSelector } from 'react-redux';
 
 import useStyles from './styles';
-import { createPost, updatePost } from '../../actions/posts';
+import { createArticle, updatePost, addUser } from '../../actions/posts';
 
 const Form = ({ currentId, setCurrentId }) => {
-  const [postData, setPostData] = useState({ creator: '', title: '', message: '', tags: ''});
+  const [postData, setPostData] = useState({ title: '', message: '', tags: '' });
+  const [userData, setUserData] = useState({ creator: '', })
   const post = useSelector((state) => (currentId ? state.posts.find((message) => message._id === currentId) : null));
   const dispatch = useDispatch();
   const classes = useStyles();
@@ -17,17 +18,19 @@ const Form = ({ currentId, setCurrentId }) => {
 
   const clear = () => {
     setCurrentId(0);
-    setPostData({ creator: '', title: '', message: '', tags: ''});
+    setPostData({ title: '', message: '', tags: '' });
+    setUserData({ creator: '' })
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     if (currentId === 0) {
-      dispatch(createPost(postData));
+      dispatch(addUser(userData));
+      //dispatch(createArticle(postData));
       clear();
     } else {
-      dispatch(updatePost(currentId, postData));
+      //dispatch(updatePost(currentId, postData));
       clear();
     }
   };

@@ -1,16 +1,20 @@
 import mongoose from 'mongoose';
 
-const ArticleSchema = new mongoose.Schema({
-    title: { type: String },
-    content: { type: String },
-    user: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'User'
-    },
+var ArticleSchema = new mongoose.Schema({
+    title: String,
+    content: String,
     tags: [String],
     createdAt: {
         type: Date,
         default: new Date(),
+    },
+    author: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User'
+    },
+    comments: {
+        type: [mongoose.Schema.Types.ObjectId],
+        ref: 'Comments'
     }
 })
 

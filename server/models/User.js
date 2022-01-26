@@ -1,9 +1,20 @@
 import mongoose from 'mongoose';
 
-const UserSchema = mongoose.Schema({
-    name: String,
-    userId: { type: mongoose.Schema.Types.ObjectId }
+var UserSchema = mongoose.Schema({
+    name: {
+        type: String,
+        unique: true
+    },
+    createdAt: {
+        type: Date,
+        default: new Date(),
+    }
 })
-const User = mongoose.model('User', UserSchema)
 
+var User = mongoose.model('User', UserSchema)
+
+User.create({
+    name: 'Junwen'
+})
 export default User;
+
