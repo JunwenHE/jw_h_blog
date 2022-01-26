@@ -22,7 +22,7 @@ export const addUser = async (req, res) => {
     }
 }
 
-export const getUsers = async (req, res) => {
+export const getUsers = async function (req, res) {
     try {
         const usersList = await User.find();
 

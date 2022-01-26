@@ -13,8 +13,11 @@ var UserSchema = mongoose.Schema({
 
 var User = mongoose.model('User', UserSchema)
 
-User.create({
-    name: 'Junwen'
+var junwen = new User({
+    name: "junwen"
 })
-export default User;
+
+//junwen.save()
+
+export default { User, junwen };
 
