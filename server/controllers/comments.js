@@ -29,6 +29,7 @@ export const getComments = async (req, res) => {
     }
 }
 
+// get the detail comment with related article and author
 export const getComment = async (req, res) => {
     const { id } = req.params;
 

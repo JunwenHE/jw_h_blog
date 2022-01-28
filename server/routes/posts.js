@@ -3,7 +3,7 @@ import express from 'express';
 import { getPosts, getPost, createPost, updatePost, deletePost } from '../controllers/posts.js';
 
 const router = express.Router();
-// Router for redirction 
+
 router.get('/', getPosts);
 router.post('/', createPost);
 router.get('/:id', getPost);
