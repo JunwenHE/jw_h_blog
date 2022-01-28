@@ -1,9 +1,15 @@
 import mongoose from 'mongoose';
 //Database schema design
 const commentSchema = mongoose.Schema({
-    authro: String,
-    title: String,
     comment: String,
+    article: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'PostArticle'
+    },
+    author: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'PostUser'
+    }
 })
 
 var PostComment = mongoose.model('PostComment', commentSchema);
